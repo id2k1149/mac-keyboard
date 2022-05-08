@@ -1,6 +1,6 @@
 const p = document.createElement('h1');
 p.classList.add('title');
-p.innerHTML += 'Virtual Keyboard (macOS)';
+p.innerHTML += 'Virtual Keyboard (macOS) for Chrome browser';
 document.body.appendChild(p);
 
 const textarea = document.createElement('textarea');
