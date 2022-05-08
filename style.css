@@ -4,8 +4,6 @@
     padding: 0;
 }
 
-
-
 body {
     max-width: 1280px;
     min-width: 500px;
@@ -85,13 +83,10 @@ textarea:focus {
 .keyboard__key:hover {
     color: #08ff00;
     box-shadow: 2px 2px #08ff00;
-
 }
 
 .keyboard__key:active {
     background: rgba(255, 255, 255, 0.3);
-    background: red;
-   
 }
 
 .keyboard__key--medium {
