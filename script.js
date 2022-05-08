@@ -402,8 +402,7 @@ const Keyboard = {
         let newPosition = 0;
 
         if (rowNumber > 1) {
-            // eslint-disable-next-line no-plusplus
-            for (let i = 0; i < rowNumber - 2; i++) {
+            for (let i = 0; i < rowNumber - 2; i += 1) {
                 newPosition += valueArr[i].length + 1;
             }
 
@@ -438,8 +437,7 @@ const Keyboard = {
         let newPosition = 0;
 
         if (rowNumber < valueArr.length) {
-            // eslint-disable-next-line no-plusplus
-            for (let i = 0; i < rowNumber; i++) {
+            for (let i = 0; i < rowNumber; i += 1) {
                 newPosition += valueArr[i].length + 1;
             }
 
@@ -504,11 +502,6 @@ window.addEventListener('DOMContentLoaded', () => {
     Keyboard.init();
 });
 
-window.addEventListener('keypress', (key) => {
-    // eslint-disable-next-line default-case
-    switch (key.key) {
-    case '⌃':
-        this.document.getSelection(key.key).add.classList();
-        break;
-    }
-});
+// window.addEventListener('keypress', (key) => {
+//     this.document.getSelection(key.key).classList.add('');
+// });
