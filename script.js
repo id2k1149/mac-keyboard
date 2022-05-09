@@ -153,7 +153,7 @@ const Keyboard = {
             // CapsLock
             case '⇪':
                 keyElement.textContent = key;
-                keyElement.classList.add('keyboard__key--medium', 'keyboard__key--activatable');
+                keyElement.classList.add('keyboard__key--medium', 'keyboard__key--withDot');
 
                 if (this.properties.capsLock) {
                     keyElement.classList.toggle('keyboard__key--active', this.properties.capsLock);
@@ -501,7 +501,3 @@ const Keyboard = {
 window.addEventListener('DOMContentLoaded', () => {
     Keyboard.init();
 });
-
-// window.addEventListener('keypress', (key) => {
-//     this.document.getSelection(key.key).classList.add('');
-// });
