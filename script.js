@@ -122,6 +122,7 @@ const Keyboard = {
             case '⌫':
                 keyElement.textContent = key;
                 keyElement.classList.add('keyboard__key--medium');
+                keyElement.id = 'Backspace';
 
                 keyElement.addEventListener('click', () => {
                     const valueHead = this.getValueHead();
@@ -138,6 +139,7 @@ const Keyboard = {
             case '⇥':
                 keyElement.textContent = key;
                 keyElement.classList.add('keyboard__key--medium');
+                keyElement.id = 'Tab';
 
                 keyElement.addEventListener('click', () => {
                     textarea.focus();
@@ -154,6 +156,7 @@ const Keyboard = {
             case '⇪':
                 keyElement.textContent = key;
                 keyElement.classList.add('keyboard__key--medium', 'keyboard__key--withDot');
+                keyElement.id = 'CapsLock';
 
                 if (this.properties.capsLock) {
                     keyElement.classList.toggle('keyboard__key--active', this.properties.capsLock);
@@ -170,6 +173,7 @@ const Keyboard = {
             case '⇧':
                 keyElement.textContent = key;
                 keyElement.classList.add('keyboard__key--large');
+                keyElement.id = 'Shift';
 
                 keyElement.addEventListener('click', () => {
                     this.shift(language);
@@ -180,6 +184,7 @@ const Keyboard = {
             // right shift
             case '⇧ ':
                 keyElement.textContent = key;
+                keyElement.id = 'Shift';
 
                 keyElement.addEventListener('click', () => {
                     this.shift(language);
@@ -191,6 +196,7 @@ const Keyboard = {
             case '⏎':
                 keyElement.textContent = key;
                 keyElement.classList.add('keyboard__key--medium');
+                keyElement.id = 'Enter';
 
                 keyElement.addEventListener('click', () => {
                     textarea.focus();
@@ -206,6 +212,7 @@ const Keyboard = {
             // language change
             case '🌐':
                 keyElement.textContent = key;
+                keyElement.id = 'Globe';
 
                 keyElement.addEventListener('click', () => {
                     this.languageChange(language);
@@ -217,7 +224,7 @@ const Keyboard = {
             // control key
             case '⌃':
                 keyElement.textContent = key;
-                // keyElement.classList.add(key.toString());
+                keyElement.id = 'Control';
 
                 keyElement.addEventListener('click', () => {
                 });
@@ -227,6 +234,7 @@ const Keyboard = {
             // option key
             case '⌥':
                 keyElement.textContent = key;
+                keyElement.id = 'Alt';
 
                 keyElement.addEventListener('click', () => {
                 });
@@ -236,6 +244,7 @@ const Keyboard = {
             // command key
             case '⌘':
                 keyElement.textContent = key;
+                keyElement.id = 'Meta';
 
                 keyElement.addEventListener('click', () => {
                 });
@@ -245,6 +254,7 @@ const Keyboard = {
             // space
             case 'space':
                 keyElement.classList.add('keyboard__key--x_large');
+                keyElement.id = ' ';
 
                 keyElement.addEventListener('click', () => {
                     textarea.focus();
@@ -259,6 +269,7 @@ const Keyboard = {
 
             case '←':
                 keyElement.textContent = key;
+                keyElement.id = 'ArrowLeft';
 
                 keyElement.addEventListener('click', () => {
                     this.moveLeft(1);
@@ -268,6 +279,7 @@ const Keyboard = {
 
             case '→':
                 keyElement.textContent = key;
+                keyElement.id = 'ArrowRight';
 
                 keyElement.addEventListener('click', () => {
                     this.moveRight(1);
@@ -277,6 +289,7 @@ const Keyboard = {
 
             case '↑':
                 keyElement.textContent = key;
+                keyElement.id = 'ArrowUp';
 
                 keyElement.addEventListener('click', () => {
                     this.moveUP();
@@ -286,6 +299,7 @@ const Keyboard = {
 
             case '↓':
                 keyElement.textContent = key;
+                keyElement.id = 'ArrowDown';
 
                 keyElement.addEventListener('click', () => {
                     this.moveDown();
@@ -300,6 +314,7 @@ const Keyboard = {
                         ? key.toUpperCase()
                         : (this.properties.capsLock ? key.toUpperCase() : key.toLowerCase())
                 );
+                keyElement.id = key;
 
                 keyElement.addEventListener('click', () => {
                     textarea.focus();
@@ -500,4 +515,20 @@ const Keyboard = {
 
 window.addEventListener('DOMContentLoaded', () => {
     Keyboard.init();
+
+    window.addEventListener('keydown', (event) => {
+        Keyboard.elements.keys.forEach((key) => {
+            if (key.id === event.key) {
+                key.classList.add('keyboard__key--realKey');
+            }
+        });
+    });
+
+    window.addEventListener('keyup', (event) => {
+        Keyboard.elements.keys.forEach((key) => {
+            if (key.id === event.key) {
+                key.classList.remove('keyboard__key--realKey');
+            }
+        });
+    });
 });
