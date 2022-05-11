@@ -116,3 +116,7 @@ textarea:focus {
 .keyboard__key--active::after {
     background: #08ff00;
 }
+
+.keyboard__key--realKey{
+    background: #08ff00;
+}
